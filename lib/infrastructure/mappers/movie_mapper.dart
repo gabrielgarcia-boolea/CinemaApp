@@ -1,0 +1,25 @@
+import 'package:cinema_app/domain/entities/movie.dart';
+import 'package:cinema_app/infrastructure/models/moviedb/movie_moviedb.dart';
+
+class MovieMapper {
+  static Movie movieDBToEntity(MovieMovieDB movieDb) => Movie(
+    adult: movieDb.adult,
+    backdropPath: (movieDb.backdropPath != '')
+        ? 'https://image.tmdb.org/t/p/w500${movieDb.backdropPath}'
+        : 'https://cdn.displate.com/artwork/857x1200/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg',
+    genreIds: movieDb.genreIds.map((e) => e.toString()).toList(),
+    id: movieDb.id,
+    originalLanguage: movieDb.originalLanguage,
+    originalTitle: movieDb.originalTitle,
+    overview: movieDb.overview,
+    popularity: movieDb.popularity,
+    posterPath: (movieDb.posterPath != '')
+        ? 'https://image.tmdb.org/t/p/w500${movieDb.posterPath}'
+        : 'no-poster',
+    releaseDate: movieDb.releaseDate,
+    title: movieDb.title,
+    video: movieDb.video,
+    voteAverage: movieDb.voteAverage,
+    voteCount: movieDb.voteCount,
+  );
+}
