@@ -8,7 +8,11 @@ class HomeScreen extends StatelessWidget {
 
   const HomeScreen({super.key, required this.pageIndex});
 
-  final viewRoutes = const <Widget>[HomeView(), SizedBox(), FavoritesView()];
+  final viewRoutes = const <Widget>[
+    HomeView(),
+    CategoriesView(),
+    FavoritesView(),
+  ];
 
   @override
   Widget build(BuildContext context) {
